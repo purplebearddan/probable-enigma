@@ -1,0 +1,56 @@
+:root{
+        
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    --sizeXs: calc(1rem * 0.5);
+    --sizeSm: calc(var(--sizeXs) * 1.5);
+    --sizeMd: calc(var(--sizeSm) * 1.5);
+    --sizeLg: calc(var(--sizeMd) * 1.5);
+    --sizeXl: calc(var(--sizeLg) * 1.5);
+}
+
+@media (prefers-color-scheme: dark) {
+:root{
+
+    color-scheme: dark;
+
+    --backdropColor: #000;
+    
+    --primary: hsl(156, 100%, 10%);
+    --onPrimary: hsl(156, 100%, 90%);
+    
+    --secondary: hsl(336, 100%, 10%);
+    --onSecondary: hsl(336, 100%, 90%);
+}
+}
+@media (prefers-color-scheme: light) {
+    :root{
+        
+    color-scheme: light;
+        
+    --backdropColor: #fff;
+    
+    --primary: hsl(156, 100%, 90%);
+    --onPrimary: hsl(156, 100%, 10%);
+    
+    --secondary: hsl(336, 100%, 90%);
+    --onSecondary: hsl(336, 100%, 10%);
+
+}
+}
+
+*, *:before, *:after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+}
+
+body{
+    min-height: 100svh;
+    max-width: 100svw;
+    background-color: var(--backdropColor);
+    color: var(--onPrimary);    
+}
