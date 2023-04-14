@@ -10,7 +10,7 @@
     --sizeXl: calc(var(--sizeLg) * 1.5);
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
 :root{
 
     color-scheme: dark;
@@ -24,7 +24,7 @@
     --onSecondary: hsl(336, 100%, 90%);
 }
 }
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
     :root{
         
     color-scheme: light;
@@ -52,5 +52,86 @@ body{
     min-height: 100svh;
     max-width: 100svw;
     background-color: var(--backdropColor);
-    color: var(--onPrimary);    
+    color: var(--onPrimary);
+    display: grid;
+    grid-template-columns: 1fr; /* 1 of 1 */
+}
+
+.mainGrid{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    'first'
+    'second'
+    'third'
+    'fourth'
+    'fifth'
+    'sixth'
+    'seventh';
+    padding: var(--sizeXs);
+    gap: var(--sizeXs);
+}
+
+.mainGrid > div{
+    border: 3px solid var(--primary);
+    padding: var(--sizeXs);
+    min-height: 10rem;
+}
+
+.mainGrid > div:nth-child(1) {
+    grid-area: first;
+}
+.mainGrid > div:nth-child(2) {
+    grid-area: second;
+}
+.mainGrid > div:nth-child(3) {
+    grid-area: third;
+}
+.mainGrid > div:nth-child(4) {
+    grid-area: fourth;
+}
+.mainGrid > div:nth-child(5) {
+    grid-area: fifth;
+}
+.mainGrid > div:nth-child(6) {
+    grid-area: sixth;
+}
+.mainGrid > div:nth-child(7) {
+    grid-area: seventh;
+}
+
+a, a:has(:visited, :hover, :active){
+    color: white;
+    background-color: black;
+    text-decoration: none;
+}
+
+.active {
+    background-color: white;
+    color: black;
+}
+
+/* Tablets: 50rem */
+@media screen and (min-width: 50rem) {
+    .mainGrid{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 
+        'first first'
+        'third fourth'
+        'third sixth'
+        'fifth sixth'
+        'second seventh';
+    }
+}
+
+
+/* Desktop: 65rem */
+@media screen and (min-width: 65rem) {
+    .mainGrid{
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: 
+        'third first first fourth'
+        'third fifth sixth sixth'
+        'second seventh seventh seventh';
+    }
 }
